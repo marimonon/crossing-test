@@ -348,13 +348,13 @@ ul {
 .top {
   position: relative;
   padding-top: 80px;
-  background-image: url("/assets/img/top-bg.png");
+  background-image: url("../img/top-bg.png");
   background-size: 100% auto;
   background-repeat: no-repeat;
 }
 @media screen and (max-width: 767px) {
   .top {
-    background-image: url("/assets/img/top-bg_sp.png");
+    background-image: url("../img/top-bg_sp.png");
     background-size: 100% auto;
   }
 }
@@ -369,6 +369,9 @@ ul {
   .top__arrow {
     top: 20%;
   }
+}
+.top__arrow img {
+  width: 100%;
 }
 .top__catch {
   position: relative;
@@ -390,7 +393,7 @@ ul {
   position: relative;
   z-index: 4;
   padding: 24% 0 6%;
-  background-image: url("/assets/img/top-kantoku.png");
+  background-image: url("../img/top-kantoku.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom center;
@@ -398,7 +401,7 @@ ul {
 @media screen and (max-width: 767px) {
   .top__what {
     padding: 200px 0 40px;
-    background-image: url("/assets/img/top-kantoku_sp.png");
+    background-image: url("../img/top-kantoku_sp.png");
     background-position: top center;
   }
 }
