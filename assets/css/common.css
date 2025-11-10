@@ -1,0 +1,573 @@
+@charset "UTF-8";
+/* ベース定義 */
+body, div, dl, dt, dd, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td, ul, ol {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
+  display: block;
+}
+
+body {
+  font-family: "Noto Sans JP", "Hiragino Sans", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", "メイリオ", Meiryo, sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
+  box-sizing: border-box;
+}
+@media screen and (max-width: 767px) {
+  body {
+    overflow-x: hidden;
+  }
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: none;
+  vertical-align: bottom;
+}
+
+a, button {
+  outline: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Utilities */
+.u-red {
+  color: #B31937;
+}
+
+.u-mt-20 {
+  margin-top: 20px !important;
+}
+
+.u-left {
+  text-align: left !important;
+}
+
+.u-center {
+  text-align: center !important;
+}
+
+.u-right {
+  text-align: right !important;
+}
+
+.u-font-bold {
+  font-weight: bold !important;
+}
+
+.u-font-normal {
+  font-weight: normal !important;
+}
+
+.u-block {
+  display: block !important;
+}
+
+.u-inline-block {
+  display: inline-block !important;
+}
+
+.u-inline {
+  display: inline !important;
+}
+
+@media screen and (max-width: 767px) {
+  .u-block-sp {
+    display: block !important;
+  }
+  .u-inline-block-sp {
+    display: inline-block !important;
+  }
+  .u-inline-sp {
+    display: inline !important;
+  }
+}
+@media screen and (min-width: 768px), print {
+  .u-block-pc {
+    display: block !important;
+  }
+  .u-inline-block-pc {
+    display: inline-block !important;
+  }
+  .u-inline-pc {
+    display: inline !important;
+  }
+}
+.u-nowrap {
+  white-space: nowrap !important;
+}
+
+@media screen and (max-width: 767px) {
+  .u-hidden-sp {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 768px), print {
+  .u-hidden-pc {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 1080px) {
+  .container {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media screen and (max-width: 1079px) {
+  .container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.btn {
+  display: inline-block;
+  position: relative;
+  padding: 10px;
+  background-color: #999;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.drawer {
+  position: fixed;
+  z-index: 1500;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 80%;
+  max-width: 300px;
+  background-color: #fff;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(100%);
+  transition: all 0.5s;
+}
+@media screen and (max-width: 767px) {
+  .is-drawer-active .drawer {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+}
+.drawer__link {
+  display: inline-block;
+  border-bottom: 1px solid #eee;
+  width: 100%;
+  padding: 20px;
+  text-decoration: none;
+  color: #000;
+  transition: all 0.3s ease;
+}
+.drawer__link:hover {
+  background-color: #eee;
+}
+
+.drawer__shade {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition-property: opacity, visibility;
+  transition-duration: 0.5s;
+}
+@media screen and (max-width: 767px) {
+  .is-drawer-active .drawer__shade {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__logo {
+  max-width: 140px;
+  margin-left: 40px;
+}
+@media screen and (max-width: 1079px) {
+  .header__logo {
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 767px) {
+  .header__logo {
+    max-width: 120px;
+  }
+}
+.header__nav {
+  width: 100%;
+  padding: 0 80px 0 40px;
+}
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .header__nav {
+    padding: 0 20px;
+  }
+}
+.header__list {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+@media screen and (max-width: 767px) {
+  .header__list {
+    display: none;
+  }
+}
+.header__link {
+  text-decoration: none;
+  color: #000;
+}
+@media screen and (min-width: 768px), print {
+  .header__sp-menu {
+    display: none;
+  }
+}
+
+.main__font {
+  position: absolute;
+  top: 20%;
+  width: 10%;
+  max-width: 138px;
+}
+.main__font.-top {
+  top: 40px;
+}
+
+.mv {
+  width: 100vw;
+  height: 44.2vw;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+.mv.-normal {
+  height: 56.25vw;
+}
+
+.sp-menu {
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  font-family: inherit;
+  line-height: 1;
+  outline: none;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.sp-menu__bar-3, .sp-menu__bar-2, .sp-menu__bar-1 {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  height: 2px;
+  background-color: #B31937;
+  transition: all 0.3s;
+}
+
+.sp-menu__bar-1 {
+  display: block;
+  top: 14px;
+  transform-origin: left;
+}
+.is-drawer-active .sp-menu__bar-1 {
+  transform: translateY(-4px) rotate(45deg) scaleX(1.4142);
+}
+
+.sp-menu__bar-2 {
+  display: block;
+  top: 24px;
+}
+.is-drawer-active .sp-menu__bar-2 {
+  transform: scaleX(0);
+}
+
+.sp-menu__bar-3 {
+  display: block;
+  top: 34px;
+  transform-origin: left;
+}
+.is-drawer-active .sp-menu__bar-3 {
+  transform: translateY(5px) rotate(-45deg) scaleX(1.4142);
+}
+
+.top {
+  position: relative;
+  padding-top: 80px;
+  background-image: url("/assets/img/top-bg.png");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+@media screen and (max-width: 767px) {
+  .top {
+    background-image: url("/assets/img/top-bg_sp.png");
+    background-size: 100% auto;
+  }
+}
+.top__arrow {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+@media screen and (max-width: 767px) {
+  .top__arrow {
+    top: 20%;
+  }
+}
+.top__catch {
+  position: relative;
+  z-index: 4;
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+}
+@media screen and (max-width: 767px) {
+  .top__catch {
+    font-size: 24px;
+  }
+}
+.top__emp {
+  -webkit-text-emphasis: filled #000;
+          text-emphasis: filled #000;
+}
+.top__what {
+  position: relative;
+  z-index: 4;
+  padding: 24% 0 6%;
+  background-image: url("/assets/img/top-kantoku.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+}
+@media screen and (max-width: 767px) {
+  .top__what {
+    padding: 200px 0 40px;
+    background-image: url("/assets/img/top-kantoku_sp.png");
+    background-position: top center;
+  }
+}
+.top__what-box {
+  background-color: rgba(179, 25, 55, 0.5);
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  font-size: 24px;
+}
+@media screen and (max-width: 767px) {
+  .top__what-box {
+    font-size: 16px;
+    text-align: left;
+  }
+}
+.top__sub {
+  font-size: 32px;
+  font-weight: bold;
+}
+@media screen and (max-width: 767px) {
+  .top__sub {
+    font-size: 20px;
+  }
+}
+.top__white {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 0;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.6) 15%, rgba(255, 255, 255, 0) 60%);
+  mix-blend-mode: screen;
+  filter: blur(20px);
+}
+
+.try {
+  position: relative;
+  background-color: rgba(179, 25, 55, 0.1);
+  padding-top: 80px;
+}
+.try__top {
+  margin-top: -80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+@media screen and (max-width: 767px) {
+  .try__top {
+    margin-top: 0;
+  }
+}
+.try__title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #B31937;
+}
+@media screen and (max-width: 767px) {
+  .try__title {
+    font-size: 24px;
+  }
+}
+.try__small {
+  color: #B31937;
+}
+@media screen and (max-width: 767px) {
+  .try__image-top {
+    max-width: 80px;
+  }
+}
+.try__sample {
+  background-color: #B31937;
+  color: #fff;
+  font-size: 24px;
+}
+@media screen and (max-width: 767px) {
+  .try__sample {
+    font-size: 20px;
+  }
+}
+.try__one {
+  position: relative;
+}
+.try__card {
+  margin-top: 40px;
+  background-color: #fff;
+  padding: 20px;
+}
+.try__card.-one {
+  max-width: 60%;
+  margin-left: 20%;
+}
+@media screen and (max-width: 767px) {
+  .try__card.-one {
+    margin-top: 80px;
+    max-width: 100%;
+    margin-left: 0;
+  }
+}
+.try__card.-two {
+  padding-bottom: 80px;
+}
+.try__card.-three {
+  padding-bottom: 80px;
+}
+.try__text {
+  font-size: 24px;
+}
+@media screen and (max-width: 767px) {
+  .try__text {
+    font-size: 20px;
+  }
+}
+.try__yabai-img {
+  position: absolute;
+  z-index: -1;
+  top: -40px;
+  right: 12%;
+}
+@media screen and (max-width: 767px) {
+  .try__yabai-img {
+    top: -70px;
+    right: 5%;
+  }
+}
+.try__one-img {
+  text-align: center;
+}
+.try__two-three {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+@media screen and (max-width: 767px) {
+  .try__two-three {
+    flex-direction: column;
+  }
+}
+.try__two {
+  width: 50%;
+}
+@media screen and (max-width: 767px) {
+  .try__two {
+    width: 100%;
+  }
+}
+.try__married-img {
+  margin-top: -60px;
+  text-align: center;
+}
+.try__three {
+  width: 50%;
+}
+@media screen and (max-width: 767px) {
+  .try__three {
+    width: 100%;
+  }
+}
+.try__hirameki-img {
+  margin-top: -160px;
+  text-align: right;
+}
+@media screen and (min-width: 768px) and (max-width: 1079px) {
+  .try__hirameki-img {
+    margin-top: -100px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .try__hirameki-img {
+    margin-top: -80px;
+  }
+}
