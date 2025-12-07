@@ -56,7 +56,27 @@
 
 <!-- noindexがtrueです -->
 <!-- ここにページの中身を入れます -->
-<div class="mv">ここに動画が入ります</div>
+<!-- mv pc -->
+<div class="mv u-hidden-sp" data-mv-play>
+	<h1>
+		<div>
+			<video playsinline muted autoplay disablepictureinpicture controlslist="nofullscreen nodownload"
+				src="./assets/video/mv.mp4" poster="./assets/img/mv-bg.webp" id="video" data-mv-video></video>
+		</div>
+	</h1>
+	<div class="vol" data-mv-vol></div>
+</div>
+<!-- mv sp -->
+<div class="mv u-hidden-pc" data-mv-play>
+	<h1>
+		<div>
+			<video playsinline muted autoplay disablepictureinpicture controlslist="nofullscreen nodownload"
+				src="./assets/video/mv.mp4" poster="./assets/img/mv-bg.webp" id="videosp" data-mv-video></video>
+		</div>
+	</h1>
+	<div class="vol" data-mv-vol></div>
+</div>
+<!-- mv end -->
 <main class="main">
 	<!-- トップ下 -->
 	<div class="top">
