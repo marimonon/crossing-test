@@ -353,6 +353,7 @@ ul {
   font-size: 16px;
 }
 .curri__topbg {
+  display: none;
   position: absolute;
   top: 0;
   z-index: -1;
@@ -797,6 +798,9 @@ ul {
   text-decoration: none;
 }
 
+.header {
+  border-bottom: 2px solid #B31937;
+}
 .header__inner {
   display: flex;
   align-items: center;
