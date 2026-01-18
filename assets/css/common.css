@@ -1491,6 +1491,7 @@ ul {
 @media screen and (min-width: 768px) and (max-width: 1079px) {
   .main__font {
     width: 10%;
+    opacity: 0.6;
   }
 }
 .main__font.-top {
@@ -1868,12 +1869,12 @@ ul {
     color: #333;
   }
 }
-.seminar__content td:nth-child(even) {
+.seminar__content td:nth-child(odd) {
   white-space: nowrap;
   font-weight: bold;
 }
 @media screen and (max-width: 767px) {
-  .seminar__content td:nth-child(even) {
+  .seminar__content td:nth-child(odd) {
     font-size: 18px;
   }
 }
