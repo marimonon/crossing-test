@@ -14,7 +14,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;700&family=Noto+Sans+JP&display=swap" rel="stylesheet">
 	<!-- Noto Sans JP -->
-	<link rel="stylesheet" href="./assets/css/common.css?v=1768756734209">
+	<link rel="stylesheet" href="./assets/css/common.css?v=1771196078096">
 </head>
 <body class="page-トップページ">
 <div class="wrapper">
@@ -31,7 +31,7 @@
 					<li><a href="./voices.html" class="header__link">生徒の声</a></li>
 					<li><a href="./aboutus.html" class="header__link">About us</a></li>
 					<li><a href="./blog.html" class="header__link">ブログ＆動画</a></li>
-					<li><a href="./contact.html" class="header__link">お問い合わせ</a></li>
+					<li><a href="./contact.html" class="header__link">費用等のお問い合わせ</a></li>
 				</ul>
 			</nav>
 			<div class="header__sp-menu">
@@ -47,7 +47,7 @@
 					<li><a href="./voices.html" class="drawer__link">生徒の声</a></li>
 					<li><a href="./aboutus.html" class="drawer__link">About us</a></li>
 					<li><a href="./blog.html" class="drawer__link">ブログ＆動画</a></li>
-					<li><a href="./contact.html" class="drawer__link">お問い合わせ</a></li>
+					<li><a href="./contact.html" class="drawer__link">費用等のお問い合わせ</a></li>
 				</ul>
 			</nav>
 			<div class="drawer__shade" id="drawer_shade"></div>
@@ -65,7 +65,7 @@
 					<div class="hero__en -contact">
 						<img src="./assets/img/font-contact.svg" alt="">
 					</div>
-					<h1 class="hero__jp -contact">お問い合わせ</h1>
+					<h1 class="hero__jp -contact">費用等のお問い合わせ</h1>
 				</div>
 				<div class="hero__img -contact">
 					<img src="./assets/img/hero-contact.webp" alt="">
@@ -85,6 +85,11 @@
 					<p class="contact__annai">
 						ご選択いただいた内容に基づき、担当者からお返事させていただきます。
 					</p>
+					<p class="contact__exbox">
+						受講費用は、お一人おひとりの目的や状況に合わせて、最適なカリキュラムを組んだ上でご案内しています。<br>
+						そのため、事前に15分程度のヒアリング面談をお願いしております。<br>
+						面談のお申し込みはこちらからお気軽に<span class="u-inline-block">どうぞ。</span>
+					</p>
 				</div>
 				<div class="contact__air">
 					<img src="./assets/img/c-air.svg" alt="">
@@ -93,45 +98,25 @@
 			<div class="c-form">
 				<ul class="c-form__list">
 					<li class="c-form__item">
-						<label for="count">希望頻度（回数）</label>
-						<select name="count" id="count">
-							<option value="選択してください">選択してください</option>
-							<option value="4回分（1か月以内終了）">4回分（1か月以内終了）</option>
-							<option value="12回分（4か月以内終了）">12回分（4か月以内終了）</option>
-							<option value="24回分（8か月以内終了）">24回分（8か月以内終了）</option>
-							<option value="まだ決めていない">まだ決めていない</option>
-						</select>
-					</li>
-					<li class="c-form__item">
-						<label for="timezone">希望時間帯</label>
-						<select name="" id="">
-							<option value="選択してください">選択してください</option>
-							<option value="平日日中">平日日中</option>
-							<option value="平日夜">平日夜</option>
-							<option value="土曜">土曜</option>
-							<option value="まだ決めていない">まだ決めていない</option>
-						</select>
-					</li>
-					<li class="c-form__item">
-						<label for="presentaiton">プレゼン指導（オプション）</label>
-						<div class="c-form__radios">
-							<input type="radio" name="presentation" value="有" id="presentaiton">
-							<span>有</span>
-							<input type="radio" name="presentation" value="無">
-							<span>無</span>
+						<label for="name">お問い合わせ内容</label>
+						<div class="c-form__checkbox">
+							<label><input type="checkbox" name="inquiry_type" value="プレゼンテーション指導">プレゼンテーション指導</label>
+							<label><input type="checkbox" name="inquiry_type" value="出張現場同行レッスン">出張現場同行レッスン</label>
+							<label><input type="checkbox" name="inquiry_type" value="費用等のお問い合わせ">費用等のお問い合わせ</label>
+							<label><input type="checkbox" name="inquiry_type" value="その他">その他</label>
 						</div>
 					</li>
 					<li class="c-form__item">
 						<label for="name">お名前</label>
-						<input id="name" type="text">
+						<input id="name" type="text" placeholder="山田 太郎">
 					</li>
 					<li class="c-form__item">
 						<label for="email">ご連絡先メールアドレス</label>
-						<input id="email" type="email">
+						<input id="email" type="email" placeholder="exampke@eigo.com">
 					</li>
 					<li class="c-form__item">
 						<label for="message">お問い合わせ内容</label>
-						<textarea id="message" rows="6"></textarea>
+						<textarea id="message" rows="6" placeholder="（例）×月に英語プレゼンを控えている。海外展示会がある、海外進出計画がある。"></textarea>
 					</li>
 				</ul>
 				<div class="c-form__privacy">
@@ -147,16 +132,16 @@
 					</button>
 				</div>
 			</div>
-			<div class="c-line">
+			<!-- <div class="c-line">
 				<div class="c-line__texts">
 					<h2>公式ラインできました！</h2>
 					<p>教室のラインができました！<br>
-						こちらからもお問い合わせ可能です。</p>
+						こちらからも費用等のお問い合わせ可能です。</p>
 				</div>
 				<div class="c-line__img">
 					<img src="./assets/img/c-line.webp" alt="公式ラインQRコード">
 				</div>
-			</div>
+			</div> -->
 		</div>
 		<div class="contact__cloud">
 			<img src="./assets/img/c-cloud.svg" alt="">
@@ -268,7 +253,7 @@
 				</li>
 	
 				<li class="footer__list">
-					<p class="footer__title">お問い合わせ</p>
+					<p class="footer__title">費用等のお問い合わせ</p>
 					<ul>
 						<li><a href="./contact.html">レッスンについて</a></li>
 						<li><a href="./contact.html#qa">Q&A</a></li>
